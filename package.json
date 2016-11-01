@@ -1,0 +1,30 @@
+{
+    "name": "multi-hashing",
+    "version": "1.0.0",
+    "main": "multihashing",
+    "author": {
+        "name": "Romano"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/romanornr/cryptography-multi-hashing.git"
+    },
+    "dependencies" : {
+        "bindings" : "*"
+    },
+    "keywords": [
+        "scrypt",
+        "scryptjane",
+        "script-n",
+        "x11",
+        "quark",
+        "keccak_hash",
+        "skein",
+        "bcrypt",
+        "keccak",
+        "blake",
+        "shavite",
+        "fugue",
+        "sha1"
+    ]
+}
