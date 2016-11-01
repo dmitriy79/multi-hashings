@@ -5,5 +5,3 @@ deploy:
   provider: npm
   sudo: false
   email: romanornr@gmail.com
-  on:
-    branch master
