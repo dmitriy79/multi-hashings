@@ -1,7 +1,7 @@
+[![BuildStatus](https://travis-ci.org/romanornr/cryptography-multi-hashing.svg?branch=master)](https://github.com/romanornr/cryptography-multi-hashing)     
 # cryptography-multi-hashing
 Cryptocurrency hashing functions 
 
-[![Build  Status](https://travis-ci.org/romanornr/cryptography-multi-hashing.svg?branch=master)](https://github.com/romanornr/cryptography-multi-hashing)
 
 High performance Stratum poolserver in Node.js. One instance of this software can startup and manage multiple coin
 pools, each with their own daemon and stratum port :)
