@@ -51,22 +51,13 @@
                 "crypto/aesb.c",
                 "crypto/wild_keccak.cpp",
             ],
-	    "include_dirs": [
+            "include_dirs": [
                 "crypto",
                 "<!(node -e \"require('nan')\")",
             ],
-            "cflags": [
-                "-D_GNU_SOURCE -maes -fPIC -Ofast -flto -fuse-linker-plugin -funroll-loops -funswitch-loops -fpeel-loops"
-            ],
-            "cflags!": [ 
-                "-O2", "-fno-strict-aliasing", "-fno-tree-vrp", "-fno-omit-frame-pointer"
-            ],
-            "ldflags": [
-                "-fPIC -Ofast -flto -fuse-linker-plugin"
-            ],
             "cflags_cc": [
-                "-std=c++0x -maes -march=native"
-            ]
+                "-std=c++0x"
+            ],
         }
     ]
-}	
+}
