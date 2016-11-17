@@ -10,7 +10,8 @@
         "url": "https://github.com/romanornr/cryptography-multi-hashing.git"
     },
     "dependencies" : {
-        "bindings" : "*"
+        "bindings" : "*",
+        "nan" : "1"
     },
     "keywords": [
         "scrypt",

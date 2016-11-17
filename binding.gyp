@@ -53,6 +53,7 @@
             ],
 	    "include_dirs": [
                 "crypto",
+                "<!(node -e \"require('nan')\")",
             ],
             "cflags": [
                 "-D_GNU_SOURCE -maes -fPIC -Ofast -flto -fuse-linker-plugin -funroll-loops -funswitch-loops -fpeel-loops"
