@@ -1,4 +1,4 @@
-[![BuildStatus](https://travis-ci.org/romanornr/cryptography-multi-hashing.svg?branch=master)](https://github.com/romanornr/cryptography-multi-hashing)     
+[![BuildStatus](https://travis-ci.org/romanornr/cryptography-multi-hashing.svg?branch=master)](https://travis-ci.org/romanornr/cryptography-multi-hashing)     
 # cryptography-multi-hashing
 Cryptocurrency hashing functions 
 
