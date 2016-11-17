@@ -1,35 +1,35 @@
 {
-    "name": "multi-hashing",
-    "version": "1.0.0",
-    "main": "multihashing",
-    "author": {
-        "name": "Romano"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/romanornr/cryptography-multi-hashing.git"
-    },
-    "dependencies" : {
-        "bindings" : "*",
-        "nan" : "*"
-    },
-    "keywords": [
-        "scrypt",
-        "scryptjane",
-        "script-n",
-        "x11",
-        "quark",
-        "keccak_hash",
-        "skein",
-        "bcrypt",
-        "keccak",
-        "blake",
-        "shavite",
-        "fugue",
-        "sha1"
-    ],
-      "scripts": {
-      "install": "node-gyp rebuild"
-    },
-    "gypfile": true
+  "name": "multi-hashing",
+  "version": "1.0.0",
+  "main": "multihashing",
+  "author": {
+    "name": "Romano"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/romanornr/cryptography-multi-hashing.git"
+  },
+  "dependencies": {
+    "bindings": "*",
+    "nan": "^2.4.0"
+  },
+  "keywords": [
+    "scrypt",
+    "scryptjane",
+    "script-n",
+    "x11",
+    "quark",
+    "keccak_hash",
+    "skein",
+    "bcrypt",
+    "keccak",
+    "blake",
+    "shavite",
+    "fugue",
+    "sha1"
+  ],
+  "scripts": {
+    "install": "node-gyp rebuild"
+  },
+  "gypfile": true
 }
