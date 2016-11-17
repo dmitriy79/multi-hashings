@@ -51,23 +51,21 @@
                 "crypto/aesb.c",
                 "crypto/wild_keccak.cpp",
             ],
-            "include_dirs": [
+	    "include_dirs": [
                 "crypto",
-                "go_equihash",
-                "go_equihash/src/equi"
+            ],
+            "cflags": [
+                "-D_GNU_SOURCE -maes -fPIC -Ofast -flto -fuse-linker-plugin -funroll-loops -funswitch-loops -fpeel-loops"
+            ],
+            "cflags!": [ 
+                "-O2", "-fno-strict-aliasing", "-fno-tree-vrp", "-fno-omit-frame-pointer"
+            ],
+            "ldflags": [
+                "-fPIC -Ofast -flto -fuse-linker-plugin"
             ],
             "cflags_cc": [
-                "-std=c++0x",
-                "-Wl,--whole-archive",
-                "-static",
-                "-fPIC",
-            ],
-            "link_settings": {
-                "libraries": [
-                    "<(module_root_dir)/go-equihash/libequi.so",
-                    "<(module_root_dir)/go-equihash/libequihash.so",
-                ],
-            },
+                "-std=c++0x -maes -march=native"
+            ]
         }
     ]
-}
+}	
