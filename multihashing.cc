@@ -144,8 +144,7 @@ NAN_METHOD(scryptjane) {
     NanScope();
 
     if (args.Length() < 5)
-        return THROW_ERROR_EXCEPTION("You must provide two argument: buffer, timestamp as number, and nChainStarTime as number, nMin, 
-and nMax");
+        return THROW_ERROR_EXCEPTION("You must provide two argument: buffer, timestamp as number, and nChainStarTime as number, nMin, and nMax");
 
     Local<Object> target = args[0]->ToObject();
 
