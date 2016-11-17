@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "bindings": "*",
-    "nan": "1"
+    "nan": "1.9.0"
   },
   "keywords": [
     "scrypt",
