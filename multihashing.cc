@@ -21,12 +21,13 @@ extern "C" {
     #include "cryptonight.h"
     #include "x13.h"
     #include "nist5.h"
-    #include "sha1.h",
+    #include "sha1.h"
     #include "x15.h"
-	#include "fresh.h"
+    #include "fresh.h"
+    #include "Lyra2RE.h"
+    #include "Lyra2.h"
+    #include "Lyra2REV2.h"
 }
-
-#include "boolberry.h"
 
 #define THROW_ERROR_EXCEPTION(x) NanThrowError(x)
 #define THROW_ERROR_EXCEPTION_WITH_STATUS_CODE(x, y) NanThrowError(x, y)
