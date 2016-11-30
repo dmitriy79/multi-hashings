@@ -20,6 +20,7 @@ extern "C" {
     #include "shavite3.h"
     #include "cryptonight.h"
     #include "x13.h"
+    #include "boolberry.h"
     #include "nist5.h"
     #include "sha1.h"
     #include "x15.h"
@@ -597,7 +598,7 @@ NAN_METHOD(fresh) {
     );
 }
 
-NAN_METHOD(Lyra2) {
+NAN_METHOD(Lyra2re) {
     NanScope();
 
     if (args.Length() < 1)
@@ -632,7 +633,7 @@ NAN_METHOD(lyra2rev2) {
     char * input = Buffer::Data(target);
     char output[32];
 
-    lyra2rev2(input, output, 8192);
+    lyra2rev2_hash(input, output, 8192);
 
     NanReturnValue(
             NanNewBufferHandle(output, 32)
