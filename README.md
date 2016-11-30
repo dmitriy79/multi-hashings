@@ -35,6 +35,7 @@ synced
 #### Hashing algorithms supported:
 * ✓ __SHA256__ (Bitcoin, Freicoin, Peercoin/PPCoin, Terracoin, etc..)
 * ✓ __Scrypt__ (Litecoin, Dogecoin, Feathercoin, etc..)
+* ✓ __lyra2rev2__ (Zcoin)
 * ✓ __Scrypt-Jane__ (YaCoin, CopperBars, Pennies, Tickets, etc..)
 * ✓ __Scrypt-N__ (Vertcoin [VTC])
 * ✓ __Quark__ (Quarkcoin [QRK])
@@ -44,6 +45,7 @@ synced
 * ✓ __Keccak__ (Maxcoin [MAX], HelixCoin, CryptoMeth, Galleon, 365coin, Slothcoin, BitcointalkCoin)
 * ✓ __Skein__ (Skeincoin [SKC])
 * ✓ __Groestl__ (Groestlcoin [GRS])
+* ✓  *Qubit* (Qubitcoin [Q2C], Myriadcoin [MYR])
 
 May be working (needs additional testing):
 * ? *Blake* (Blakecoin [BLC])
@@ -61,7 +63,7 @@ Not working currently:
 Requirements
 ------------
 * node v0.10+
-* coin daemon (preferably one with a relatively updated API and not some crapcoin :p)
+* coin daemon (preferably one with a relatively updated API)
 
 
 Example Usage
