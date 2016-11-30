@@ -20,7 +20,6 @@ extern "C" {
     #include "shavite3.h"
     #include "cryptonight.h"
     #include "x13.h"
-    #include "boolberry.h"
     #include "nist5.h"
     #include "sha1.h"
     #include "x15.h"
@@ -470,42 +469,6 @@ NAN_METHOD(x13) {
     );
 }
 
-NAN_METHOD(boolberry) {
-    NanScope();
-
-    if (args.Length() < 2)
-        return THROW_ERROR_EXCEPTION("You must provide two arguments.");
-
-    Local<Object> target = args[0]->ToObject();
-    Local<Object> target_spad = args[1]->ToObject();
-    uint32_t height = 1;
-
-    if(!Buffer::HasInstance(target))
-        return THROW_ERROR_EXCEPTION("Argument 1 should be a buffer object.");
-
-    if(!Buffer::HasInstance(target_spad))
-        return THROW_ERROR_EXCEPTION("Argument 2 should be a buffer object.");
-
-    if(args.Length() >= 3)
-        if(args[2]->IsUint32())
-            height = args[2]->ToUint32()->Uint32Value();
-        else
-            return THROW_ERROR_EXCEPTION("Argument 3 should be an unsigned integer.");
-
-    char * input = Buffer::Data(target);
-    char * scratchpad = Buffer::Data(target_spad);
-    char output[32];
-
-    uint32_t input_len = Buffer::Length(target);
-    uint64_t spad_len = Buffer::Length(target_spad);
-
-    boolberry_hash(input, input_len, scratchpad, spad_len, output, height);
-
-    NanReturnValue(
-        NanNewBufferHandle(output, 32)
-    );
-}
-
 NAN_METHOD(nist5) {
     NanScope();
 
@@ -598,7 +561,7 @@ NAN_METHOD(fresh) {
     );
 }
 
-NAN_METHOD(Lyra2re) {
+NAN_METHOD(lyra2re) {
     NanScope();
 
     if (args.Length() < 1)
@@ -658,7 +621,6 @@ void init(Handle<Object> exports) {
     exports->Set(NanNew<String>("shavite3"), NanNew<FunctionTemplate>(shavite3)->GetFunction());
     exports->Set(NanNew<String>("cryptonight"), NanNew<FunctionTemplate>(cryptonight)->GetFunction());
     exports->Set(NanNew<String>("x13"), NanNew<FunctionTemplate>(x13)->GetFunction());
-    exports->Set(NanNew<String>("boolberry"), NanNew<FunctionTemplate>(boolberry)->GetFunction());
     exports->Set(NanNew<String>("nist5"), NanNew<FunctionTemplate>(nist5)->GetFunction());
     exports->Set(NanNew<String>("sha1"), NanNew<FunctionTemplate>(sha1)->GetFunction());
     exports->Set(NanNew<String>("x15"), NanNew<FunctionTemplate>(x15)->GetFunction());
