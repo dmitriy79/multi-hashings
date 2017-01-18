@@ -28,8 +28,4 @@
     "fugue",
     "sha1"
   ],
-  "scripts": {
-    "install": "node-gyp rebuild"
-  },
-  "gypfile": true
 }

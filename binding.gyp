@@ -17,14 +17,17 @@
                 "qubit.c",
                 "hefty1.c",
                 "shavite3.c",
-                "cryptonight.c",
                 "x13.c",
                 "nist5.c",
                 "sha1.c",
+                "whirlpoolx.c",
                 "x15.c",
+	        "whirlpoolx.c",
+	        "Lyra2RE.c",
+	        "zr5.c",
                 "fresh.c",
-                "Sponge.c",
-                "Lyra2.c",
+	        "Lyra2.c",
+	        "Sponge.c",
                 "Lyra2RE.c",
                 "Lyra2REV2.c",
                 "sha3/sph_hefty1.c",
@@ -57,7 +60,7 @@
             "include_dirs": [
                 "crypto",
                 "sha3",
-                "<!(node -e \"require('nan')\")",
+                "<!(node -e \"require('nan')\")"
             ],
             "cflags_cc": [
                 "-std=c++0x"

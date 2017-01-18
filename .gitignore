@@ -1,4 +1,3 @@
-build/Release
-build/*
+build
 node_modules
 npm-debug.log

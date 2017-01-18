@@ -18,7 +18,6 @@ extern "C" {
     #include "qubit.h"
     #include "hefty1.h"
     #include "shavite3.h"
-    #include "cryptonight.h"
     #include "x13.h"
     #include "nist5.h"
     #include "sha1.h"
@@ -48,7 +47,7 @@ NAN_METHOD(quark) {
 
     char * input = Buffer::Data(target);
     char output[32];
-    
+
     uint32_t input_len = Buffer::Length(target);
 
     quark_hash(input, output, input_len);
@@ -91,17 +90,17 @@ NAN_METHOD(scrypt) {
 
    if(!Buffer::HasInstance(target))
        return THROW_ERROR_EXCEPTION("Argument should be a buffer object.");
-    
+
    Local<Number> numn = args[1]->ToNumber();
    unsigned int nValue = numn->Value();
    Local<Number> numr = args[2]->ToNumber();
    unsigned int rValue = numr->Value();
-   
+
    char * input = Buffer::Data(target);
    char output[32];
 
    uint32_t input_len = Buffer::Length(target);
-   
+
    scrypt_N_R_1_256(input, output, nValue, rValue, input_len);
 
    NanReturnValue(
@@ -236,7 +235,7 @@ NAN_METHOD(skein) {
     char output[32];
 
     uint32_t input_len = Buffer::Length(target);
-    
+
     skein_hash(input, output, input_len);
 
     NanReturnValue(
@@ -258,7 +257,7 @@ NAN_METHOD(groestl) {
 
     char * input = Buffer::Data(target);
     char output[32];
-    
+
     uint32_t input_len = Buffer::Length(target);
 
     groestl_hash(input, output, input_len);
@@ -282,7 +281,7 @@ NAN_METHOD(groestlmyriad) {
 
     char * input = Buffer::Data(target);
     char output[32];
-    
+
     uint32_t input_len = Buffer::Length(target);
 
     groestlmyriad_hash(input, output, input_len);
@@ -306,7 +305,7 @@ NAN_METHOD(blake) {
 
     char * input = Buffer::Data(target);
     char output[32];
-    
+
     uint32_t input_len = Buffer::Length(target);
 
     blake_hash(input, output, input_len);
@@ -330,7 +329,7 @@ NAN_METHOD(fugue) {
 
     char * input = Buffer::Data(target);
     char output[32];
-    
+
     uint32_t input_len = Buffer::Length(target);
 
     fugue_hash(input, output, input_len);
@@ -354,7 +353,7 @@ NAN_METHOD(qubit) {
 
     char * input = Buffer::Data(target);
     char output[32];
-    
+
     uint32_t input_len = Buffer::Length(target);
 
     qubit_hash(input, output, input_len);
@@ -378,7 +377,7 @@ NAN_METHOD(hefty1) {
 
     char * input = Buffer::Data(target);
     char output[32];
-    
+
     uint32_t input_len = Buffer::Length(target);
 
     hefty1_hash(input, output, input_len);
@@ -402,44 +401,10 @@ NAN_METHOD(shavite3) {
 
     char * input = Buffer::Data(target);
     char output[32];
-    
+
     uint32_t input_len = Buffer::Length(target);
 
     shavite3_hash(input, output, input_len);
-
-    NanReturnValue(
-        NanNewBufferHandle(output, 32)
-    );
-}
-
-NAN_METHOD(cryptonight) {
-    NanScope();
-
-    bool fast = false;
-
-    if (args.Length() < 1)
-        return THROW_ERROR_EXCEPTION("You must provide one argument.");
-    
-    if (args.Length() >= 2) {
-        if(!args[1]->IsBoolean())
-            return THROW_ERROR_EXCEPTION("Argument 2 should be a boolean");
-        fast = args[1]->ToBoolean()->BooleanValue();
-    }
-
-    Local<Object> target = args[0]->ToObject();
-
-    if(!Buffer::HasInstance(target))
-        return THROW_ERROR_EXCEPTION("Argument should be a buffer object.");
-
-    char * input = Buffer::Data(target);
-    char output[32];
-    
-    uint32_t input_len = Buffer::Length(target);
-
-    if(fast)
-        cryptonight_fast_hash(input, output, input_len);
-    else
-        cryptonight_hash(input, output, input_len);
 
     NanReturnValue(
         NanNewBufferHandle(output, 32)
@@ -578,7 +543,7 @@ NAN_METHOD(lyra2re) {
     lyra2re_hash(input, output);
 
     NanReturnValue(
-            NanNewBufferHandle(output, 32)
+        NanNewBufferHandle(output, 32)
     );
 }
 
@@ -591,7 +556,7 @@ NAN_METHOD(lyra2rev2) {
     Local<Object> target = args[0]->ToObject();
 
     if(!Buffer::HasInstance(target))
-        return THROW_ERROR_EXCEPTION("Argument should be a buffer object");
+        return THROW_ERROR_EXCEPTION("Argument should be a buffer object.");
 
     char * input = Buffer::Data(target);
     char output[32];
@@ -599,7 +564,7 @@ NAN_METHOD(lyra2rev2) {
     lyra2rev2_hash(input, output, 8192);
 
     NanReturnValue(
-            NanNewBufferHandle(output, 32)
+        NanNewBufferHandle(output, 32)
     );
 }
 
@@ -619,7 +584,6 @@ void init(Handle<Object> exports) {
     exports->Set(NanNew<String>("qubit"), NanNew<FunctionTemplate>(qubit)->GetFunction());
     exports->Set(NanNew<String>("hefty1"), NanNew<FunctionTemplate>(hefty1)->GetFunction());
     exports->Set(NanNew<String>("shavite3"), NanNew<FunctionTemplate>(shavite3)->GetFunction());
-    exports->Set(NanNew<String>("cryptonight"), NanNew<FunctionTemplate>(cryptonight)->GetFunction());
     exports->Set(NanNew<String>("x13"), NanNew<FunctionTemplate>(x13)->GetFunction());
     exports->Set(NanNew<String>("nist5"), NanNew<FunctionTemplate>(nist5)->GetFunction());
     exports->Set(NanNew<String>("sha1"), NanNew<FunctionTemplate>(sha1)->GetFunction());
